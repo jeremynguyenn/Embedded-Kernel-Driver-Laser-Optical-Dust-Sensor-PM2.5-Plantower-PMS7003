@@ -1,0 +1,17 @@
+/dts-v1/;
+
+/ {
+    #address-cells = <1>;
+    #size-cells = <1>;
+
+    pmsx003 {
+        compatible = "plantower,pmsx003";
+        reg = <0xFF200000>;  /* UART base addr example for Raspberry Pi or similar */
+        pinctrl-names = "default";
+        pinctrl-0 = <&pmsx003_pins>;
+        reset-gpios = <&gpio 17 GPIO_ACTIVE_HIGH>;
+        set-gpios = <&gpio 27 GPIO_ACTIVE_HIGH>;
+        uart = <&uart0>;  /* Phandle to UART node in main DTS */
+        status = "okay";
+    };
+};
